@@ -2,6 +2,14 @@
 
 fwlinksbot is special. He tells you about stuff that goes on as it happens (first, actually). You should _want_ him in your channel. If you do, [contact me](http://www.icj.me/contact)!
 
+More about this:
+
+When any event happens in terms of the fwlinks updaters (i.e. firmware, iTunes, redsn0w, PwnageTool, iFaith, sn0wbreeze, etc release or SHSH signing changes), **fwlinksbot** actually posts by default to the IRC channels that he's in, in a format similar to this:
+
+`[10:55] <+fwlinksbot> [Update] Something awesome has happened!` (but kinda more detailed :P)
+
+And yes, he's a "he".
+
 So, onto the commands.
 
 ## Commands
