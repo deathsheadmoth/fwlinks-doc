@@ -10,7 +10,7 @@ There are three distinct commands.
 
 * `!fw` - for firmware, iTunes, redsn0w and PwnageTool requests.
 * `!tss` - for TSS (SHSH signing!) requests - powered by [Neal](http://twitter.com/iNeal)'s API.
-* `!shsh` - for finding out SHSH blogs found on Cydia's SHSH cache server.
+* `!shsh` - for finding out SHSH blobs found on Cydia's SHSH cache server.
 
 ## The syntax
 
