@@ -56,8 +56,8 @@ This allows you to select the latest/earliest data for a device.
 
 The request URL follows the syntax below:
 
-`http://api.ios.icj.me/v2/[device]/latest/[requested data](/dl)` for latest
-`http://api.ios.icj.me/v2/[device]/earliest/[requested data](/dl)` for earliest
+* `http://api.ios.icj.me/v2/[device]/latest/[requested data](/dl)` for latest
+* `http://api.ios.icj.me/v2/[device]/earliest/[requested data](/dl)` for earliest
 
 ### 1.4. Using the MD5sum or SHA1sum of the IPSW file
 
