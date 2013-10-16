@@ -50,15 +50,14 @@ The request URL follows the syntax below:
 
 **Warning** this request is not ideal, due to the fact that some versions have more than one firmware under that version. If this is the case, a `300 Multiple Choices` [status code](#responses) will be returned, with all the data in JSON format. _Just use the BuildID request method (1.1)_.
 
-### 1.3. Using device and 'latest'
+### 1.3. Using device and 'latest' OR 'earliest'
 
-This allows you to select the latest data for a device.
+This allows you to select the latest/earliest data for a device.
 
 The request URL follows the syntax below:
 
-`http://api.ios.icj.me/v2/[device]/latest/[requested data](/dl)`
-
-Note that this and all other parts of the API do not return beta firmware or OTA update information.
+`http://api.ios.icj.me/v2/[device]/latest/[requested data](/dl)` for latest
+`http://api.ios.icj.me/v2/[device]/earliest/[requested data](/dl)` for earliest
 
 ### 1.4. Using the MD5sum or SHA1sum of the IPSW file
 
@@ -114,6 +113,7 @@ Below are some example requests.
 * `http://api.ios.icj.me/v2/iPad1,1/8L1/filesize`
 * `http://api.ios.icj.me/v2/iPad1,1/8L1/url/dl`
 * `http://api.ios.icj.me/v2/iPad3,1/latest/filename`
+* `http://api.ios.icj.me/v2/iPad3,2/earliest/info`
 * `http://api.ios.icj.me/v2/2c0dd880982f0f8e47dc3dadfb733ad7/url`
 * `http://api.ios.icj.me/v2/2c0dd880982f0f8e47dc3dadfb733ad7/identifier`
 
@@ -121,6 +121,7 @@ Below are some example requests.
 
 ## 6. Other Information<a id="other"></a>
 
+* Note that this and all other parts of the API _do not_ return beta firmware or OTA update information.
 * Please **assign your application a user agent** when you request a link. This will make it easier to track the API usage.
 * There is a PHP Class and example for using the API on my [GitHub](https://github.com/cj123/fwlinks-api).
 

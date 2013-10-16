@@ -25,7 +25,7 @@ The request URL is formatted as so:
 
 `http://api.ios.icj.me/v2/iTunes/[Operating System]/[version]/[request](/dl)`
 
-Note that `[version]` can be replaced with "latest" to find the latest version.
+Note that `[version]` can be replaced with `latest` to find the latest version, or `earliest` to find the earliest version.
 
 ## 2. Requesting Data<a id="requests"></a>
 
