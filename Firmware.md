@@ -113,7 +113,7 @@ Below are some example requests.
 * `http://api.ios.icj.me/v2/iPad1,1/8L1/filesize`
 * `http://api.ios.icj.me/v2/iPad1,1/8L1/url/dl`
 * `http://api.ios.icj.me/v2/iPad3,1/latest/filename`
-* `http://api.ios.icj.me/v2/iPad3,2/earliest/info`
+* `http://api.ios.icj.me/v2/iPad3,2/earliest/info.json`
 * `http://api.ios.icj.me/v2/2c0dd880982f0f8e47dc3dadfb733ad7/url`
 * `http://api.ios.icj.me/v2/2c0dd880982f0f8e47dc3dadfb733ad7/identifier`
 
