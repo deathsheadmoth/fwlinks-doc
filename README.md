@@ -7,7 +7,7 @@ Feel free to [contribute](http://github.com/cj123/fwlinks-doc).
 
 ## Navigation
 
-* [Firmwares](Firmwares.md)
+* [Firmwares](Firmware.md)
 * [redsn0w](redsn0w.md)
 * [PwnageTool](PwnageTool.md)
 * [iTunes](iTunes.md)
