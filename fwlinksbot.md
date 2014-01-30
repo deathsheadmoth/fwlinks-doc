@@ -14,68 +14,54 @@ So, onto the commands.
 
 ## Commands
 
-There are three distinct commands.
+Commands are as follows:
 
-* `!fw` - for firmware, iTunes, redsn0w and PwnageTool requests.
+* `!fw`, `!firmware` - for firmware releases
+  following the format: `!fw <identifier> (buildid/version) (request)`
+* `!it`, `!itunes` - for iTunes releases
+  following the format: `!it <Operating System> (version) (request)`
+* `!rs`, `!redsn0w` - for redsn0w releases
+  following the format: `!rs <Operating System> (version) (request)`
+* `!pt`, `!pwnagetool` - for pwnagetool releases (got the idea yet? :P)
+  following the format: `!pt (version) (request)`
 * `!tss` - for TSS (SHSH signing!) requests - powered by [Neal](http://twitter.com/iNeal)'s API.
+  following the format: `!tss <identifier/version/buildid>`
 * `!shsh` - for finding out SHSH blobs found on Cydia's SHSH cache server.
+  following the format: `!shsh <ecid>`
 
-## The syntax
+Where `<item>` indicates a required field. If the items in brackets are not found, they will default to the following:
 
-### !fw requests
+* `(version)` to `latest`
+* `(request)` to `url`
 
-_**The following is for firmwares only!**_
+## Requests:
 
-The syntax is as follows:
+Where:
 
-* `!fw [device] [version] [request]` - see explanations below for the meanings of each of these.
-* `!fw [device] [buildid] [request]` - noting that versions are easier for users to remember (_i.e._ the first command is probably more suited to usage in IRC)
+* `<identifier>` is the *identifier* of the device you want, or the *boardconfig*. e.g. _iPhone4,1_ **or** _n94ap_
+* `<buildid>` is the BuildIdentifier of the firmware file, found in the BuildManifest.plist or Restore.plist of the IPSW file. Also the filename of the IPSW (see diagram below)
+* `<version>` is the version of the IPSW/tool (see diagram below)
+* `<request>` is the data you wish to request - see the [Firmware Links API documentation](http://api.ios.icj.me/docs/Firmware#requests) for all possibilities.
 
+<pre class="code" style="width: auto; min-width: auto;">
+e.g. iPhone3,1_4.1_8B117_Restore.ipsw
+     |_______| |_| |___|
+         |      |    |
+         |      |    \----- BuildID: 8B117
+         |      \---------- Version: 4.1
+         \----------------- Identifier/device: iPhone3,1
+</pre>
 
-#### Requests:
-
-* `[device]` - the *identifier* of the device you want, or the *boardconfig*. e.g. _iPhone4,1_ **or** _n94ap_
-* `[buildid]` - the BuildIdentifier of the firmware file, found in the BuildManifest.plist or Restore.plist of the IPSW file. Also the filename of the IPSW (see diagram below)
-* `[version]` - the version of the IPSW (see diagram below)
-* `[request]` - the data you wish to request - see the [Firmware Links API documentation](http://api.ios.icj.me/docs/Firmware#requests) for all possibilities.
-
-You will then be returned the data you wish in this form:
-
-`[request]: [data]` where `[data]` is what you wanted :)
-
-_**For all other types**_
-
-_i.e._ iTunes, redsn0w, PwnageTool
-
-The request follows this syntax:
-
-`!fw [product] ([version])` - **N.B.** `[version]` is not required, and in some cases not yet supported (work in progress). The default is to return the _latest_ version.Which is probably of the most use to you anyway.
-
-### !tss requests
-
-The `!tss` requests operate on a per-device basis, and are for finding out firmwares *currently being signed* by Apple. The request format is as follows:
-
-`!tss [request]` - where `[request]` is one of the following:
-
-* `[device]` - the *identifier* of the device you want e.g. `iPhone4,1`
-* `[boardconfig]` - the *boardconfig* that you want e.g. `n81ap`
-* `[version]` - the version of the firmware e.g. `4.2.1`
-* `[buildid]` - the buildid of the firmware e.g. `8B117`
-
-### !shsh requests
-
-The `!shsh` command operates on a per-device basis, and is useful for finding out which SHSH blobs saurik has on his server. The request format is as follows:
-
-`!shsh [ecid]` - where `[ecid]` is the ECID of the device, in either decimal or hexadecimal form.
 
 ## Some Examples
 
-* `!fw iPhone2,1 latest url`
+* `!fw iPhone4,1`
+* `!it Windows`
+* `!rs Windows 0.9.15b3 url`
+* `!fw iPhone2,1 latest version`
 * `!fw n81ap latest datefound`
-* `!fw iTunes` - latest version
-* `!fw redsn0w` - latest version
-* `!fw iTunes 11.0.5`
-* `!tss iPhone3,1` - TSS request
-* `!fw PwnageTool` - latest version
+* `!iTunes Windows 11.0.5 url`
+* `!tss iPhone3,1`
+* `!tss 4.2.1`
 
 This documentation and the fwlinksbot will most likely receive updates in the near future.
