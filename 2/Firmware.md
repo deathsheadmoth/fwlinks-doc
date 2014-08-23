@@ -88,7 +88,7 @@ Below are listed the items you may request from the API.
 ## 3. Extras<a id="extras"></a>
 
 * It is possible to download the IPSW when requesting the _URL only_ by adding `/dl` to the end of the URL (as shown above)
-* A **JSON file** of all of the information provided by this API is found [here](http://api.ios.icj.me/firmwares.json) (`http://api.ios.icj.me/firmwares.json`) with a condensed version [here](http://api.ios.icj.me/firmwares.json/condensed) (`http://api.ios.icj.me/firmwares.json/condensed`). Do with it what you will.
+* A **JSON file** of all of the information provided by this API is found [here](http://api.ios.icj.me/firmwares.json) (`http://api.ios.icj.me/v2/firmwares.json`) with a condensed version [here](http://api.ios.icj.me/v2/firmwares.json/condensed) (`http://api.ios.icj.me/firmwares.json/condensed`). Do with it what you will.
 * All data in this API updates automatically when a new firmware is released, usually within the minute.
 
 ---
