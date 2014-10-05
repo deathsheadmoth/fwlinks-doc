@@ -1,7 +1,5 @@
 ## iOS Firmwares
 
-The API v2 has been updated to be faster, prettier, and more epic than before. This does however mean some **significant changes** to the way the API is used. <strike>While v1 will remain running,</strike> It is recommended that you update your programs to use the new method of requesting information.
-
 Before using the API please read all of this document.
 
 ## Contents
@@ -73,10 +71,11 @@ Below are listed the items you may request from the API.
 
 * `url` - the link to the firmware on Apple's servers
 * `md5sum` - the MD5sum of the IPSW
-* `datefound` - the date the firmware was uploaded to Apple's Servers - formatted `Y-m-d`
-* `filesize` - the filesize of the IPSW **in bytes**
-* `device`/`name` - the user-friendly name of the device that the IPSW points to e.g. `iPod touch 5`
-* `firmware`/`version` - the version of the IPSW file
+* `uploaddate` - the date the firmware was uploaded to Apple's Servers - formatted RFC3339. 
+* `releasedate` - the date the firmware was released - formatted RFC3339. **Not available for some earlier firmwares**
+* `filesize` - the size of the IPSW **in bytes**
+* `name` - the user-friendly name of the device that the IPSW points to e.g. `iPod touch 5`
+* `version` - the version of the IPSW file
 * `buildid` - the BuildID of the firmware
 * `identifier` - the user-unfriendly (but api friendly :P) identifier of the device e.g. `iPod5,1`
 * `info.json` - all known information about the firmware (i.e. everything in this list) in json format
@@ -88,7 +87,7 @@ Below are listed the items you may request from the API.
 ## 3. Extras<a id="extras"></a>
 
 * It is possible to download the IPSW when requesting the _URL only_ by adding `/dl` to the end of the URL (as shown above)
-* A **JSON file** of all of the information provided by this API is found [here](http://api.ios.icj.me/v2/firmwares.json) (`http://api.ios.icj.me/v2/firmwares.json`) with a condensed version [here](http://api.ios.icj.me/v2/firmwares.json/condensed) (`http://api.ios.icj.me/v2/firmwares.json/condensed`). Do with it what you will.
+* A **JSON file** of all of the information provided by this API is found [here](http://api.ios.icj.me/v2.1/firmwares.json) (`http://api.ios.icj.me/v2.1/firmwares.json`) with a condensed version [here](http://api.ios.icj.me/v2.1/firmwares.json/condensed) (`http://api.ios.icj.me/v2.1/firmwares.json/condensed`). Do with it what you will.
 * All data in this API updates automatically when a new firmware is released, usually within the minute.
 
 ---
@@ -99,7 +98,7 @@ The API responds with Status codes in the headers to provided information on the
 
 * `400 Bad Request` - the request has not been completed due to a syntax or formatting error. Refer to this documentation.
 * `404 Not found` - information not found, does not exist in database
-* `300 Multiple Choices` - There are multiple pieces of data that have been returned to you. This is only when requesting by firmware, not buildid. The choices will be returned in a JSON format.
+* `300 Multiple Choices` - There are multiple pieces of data that have been returned to you. This is only when requesting by firmware, not buildid. The choices will be returned as an array in a JSON format.
 * `200 OK` - the data has been found and successfully returned to you. (this is the best one!)
 
 --- 
@@ -108,20 +107,13 @@ The API responds with Status codes in the headers to provided information on the
 
 Below are some example requests.
 
-* `http://api.ios.icj.me/v2/iPod4,1/8B118/url`
-* `http://api.ios.icj.me/v2/iPad1,1/8L1/datefound`
-* `http://api.ios.icj.me/v2/iPad1,1/8L1/filesize`
-* `http://api.ios.icj.me/v2/iPad1,1/8L1/url/dl`
-* `http://api.ios.icj.me/v2/iPad3,1/latest/filename`
-* `http://api.ios.icj.me/v2/iPad3,2/earliest/info.json`
-* `http://api.ios.icj.me/v2/2c0dd880982f0f8e47dc3dadfb733ad7/url`
-* `http://api.ios.icj.me/v2/2c0dd880982f0f8e47dc3dadfb733ad7/identifier`
+* `http://api.ios.icj.me/v2.1/iPod4,1/8B118/url`
+* `http://api.ios.icj.me/v2.1/iPad1,1/8L1/datefound`
+* `http://api.ios.icj.me/v2.1/iPad1,1/8L1/filesize`
+* `http://api.ios.icj.me/v2.1/iPad1,1/8L1/url/dl`
+* `http://api.ios.icj.me/v2.1/iPad3,1/latest/filename`
+* `http://api.ios.icj.me/v2.1/iPad3,2/earliest/info.json`
+* `http://api.ios.icj.me/v2.1/2c0dd880982f0f8e47dc3dadfb733ad7/url`
+* `http://api.ios.icj.me/v2.1/2c0dd880982f0f8e47dc3dadfb733ad7/identifier`
 
----
-
-## 6. Other Information<a id="other"></a>
-
-* Note that this and all other parts of the API _do not_ return beta firmware or OTA update information.
-* Please **assign your application a user agent** when you request a link. This will make it easier to track the API usage.
-* There is a PHP Class and example for using the API on my [GitHub](https://github.com/cj123/fwlinks-api).
 
