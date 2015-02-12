@@ -9,7 +9,6 @@ Before using the API please read all of this document.
 3. [Extras](#extras)
 4. [Responses](#responses)
 5. [Examples](#examples)
-6. [Other Information](#other)
 
 ---
 
